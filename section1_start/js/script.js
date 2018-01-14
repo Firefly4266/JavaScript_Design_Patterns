@@ -1,7 +1,11 @@
 /*create an object and move everything into the object so only one variable is in the global namespace.
 	this object can have any name but it is best to make the name something unique to reduce the risk of
 	collision or being over written.*/
-var o = {
+var com = com || {};
+com.Firefly4266 = com.Firefly4266 || {};
+com.Firefly4266.JSDP = com.Firefly4266.JSDP ||{};
+
+com.Firefly4266.JSDP = {
 		leadself: 'Me: ',
 		leadcomputer: "PC: ",
 		aSaid: ["This is a Cyber Chat"],
