@@ -25,7 +25,7 @@ function saySassyStuff(){
 
 function echo(msg){
 	aSaid.push("<div>" + msg + "</div>");
-	start = Math.max(aSaid.length - 6, 0),
+	start = Math.max(aSaid.length - 6, 0), 
 	out = "";
 
 	// for(var i = start; i < aSaid.length; i++){
