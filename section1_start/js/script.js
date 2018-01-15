@@ -1,6 +1,6 @@
 //now we remove everything out of the global namespace by wrapping it in an IIFE
 
-(function(){
+(function(win, doc, $){
 	var chatModule = (function() {
 			var _leadself = 'Me: ',
 			_leadcomputer = "PC: ",
@@ -48,9 +48,17 @@
 			};	
 	})();
 	
-	$(document).ready(function(){
+	$(doc).ready(function(){
 		chatModule.talk("Hello World");
 		chatModule.replyYesNo();
 		chatModule.saySassyStuff()
 	});
-})();
+
+	if(!win.chatModule) win.chatModule = chatModule;
+	/*we are still using the global scope because we call document.ready and
+	 we are using JQuery. We can fix this by sending them to our object 
+	 (along with the window object)and referencing them in our initial function call.*/
+})(window, document, jQuery);
+/*because we passed "window" to our object and referenced it in our function definition
+we can leverage this to create a public api and create the chatModule if it doesn't exist
+(see line 57). This line CANNOT work unless the window object is passed on line 61.*/
