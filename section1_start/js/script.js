@@ -1,6 +1,4 @@
-//refactor to the "Reveal" module pattern
 var chatModule = (function() {
-	/*preface members you want to be private with the "_" so you don't forget what you want to keep private*/
 		var _leadself = 'Me: ',
 		_leadcomputer = "PC: ",
 		_aSaid = ["This is a Cyber Chat"],
@@ -13,9 +11,6 @@ var chatModule = (function() {
 						"You’ve got about as much charm as a dead slug."
 					];
 
-		/*move functions from the return statement into the chat module.  This way all of the methods
-		can interact with each other without creating unnecessary complexity. preface members you 
-		want to be private with the "_" so you don't forget what you want to keep private.*/
 		function talk(msg){
 			_echo(_leadself + msg);
 		};
@@ -55,32 +50,3 @@ $(document).ready(function(){
 	chatModule.replyYesNo();
 	chatModule.saySassyStuff()
 });
-
-
-
-
-
-/*_______________________________________________________________________________________________________ */
-
-/*return {
-	talk: function(msg){
-		echo(leadself + msg);
-	},
-	
-	replyYesNo: function(){
-		var msg = Math.random()<.5 ? msgYes : msgNo;
-		echo(leadcomputer + msg);
-	},
-	
-	saySassyStuff: function(){
-		var msg = aSassyStuff[ Math.floor(Math.random() * aSassyStuff.length)];
-		echo(leadcomputer + msg);
-	}
-};	
-})();
-
-$(document).ready(function(){
-chatModule.talk("Hello World");
-chatModule.replyYesNo();
-chatModule.saySassyStuff();
-});*/
